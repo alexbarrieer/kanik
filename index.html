@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mike Tyson - Iron Mike</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Підключення CSS -->
+    <link rel="icon" href="logo.png" type="image/png" sizes="any" />
+    <link rel="icon" href="logo.png" type="image/png" sizes="32x32" />
+    <!-- Додавання фавіконки -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">KANIK WEST</h1>
+            <p class="slogan">
+                <span>Everything</span>
+                <span>I'm</span>
+                <span>not</span>
+                <span>makes</span>
+                <span>me</span>
+                <span>I</span>
+                <span>am</span>
+            </p>
+            <a href="#" class="buy-button">BUY</a>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number">92.9 million</span>
+                <span class="stat-label">Album Sales</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1 million</span>
+                <span class="stat-label">Unpaid Taxes</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Number of real tokens on Pump.fun</span>
+            </div>
+        </div>
+
+        <div class="contract-address">
+            <span class="label">SOLANA</span>
+            <span class="address">TtyHStgFviVpaE2CNnMri4ndhqNTsRhgPFshVtAmike</span>
+        </div>
+
+        <div class="social-icons-left">
+            <a href="https://x.com/kanikonsol" target="_blank">
+                <img src="ico4.png" alt="Telegram" />
+            </a>
+            <a href="https://pump.fun/" target="_blank">
+                <img src="Group 1864.png" alt="Instagram" />
+            </a>
+        </div>
+
+        <div class="social-icons-right">
+
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document
+            .getElementById('progressText')
+            .addEventListener('click', function() {
+                const textToCopy = this.textContent;
+                navigator.clipboard
+                    .writeText(textToCopy)
+                    .then(() => {
+                        alert('Text copied to clipboard!');
+                    })
+                    .catch((err) => {
+                        console.error('Failed to copy text: ', err);
+                    });
+            });
+    </script>
+</body>
+
+</html>

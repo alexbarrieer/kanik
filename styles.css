@@ -1,0 +1,1015 @@
+/* Скидання стилів */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F9F7EB;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    height: 100vh;
+    /* фиксированная высота */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* убираем скролл */
+    background-image: url('kanik.png');
+    /* Make sure kanik.jpg is in the correct directory */
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: normal;
+}
+
+
+/* Add a dark overlay to make the background image darker */
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black overlay with 50% opacity */
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-logo {
+    display: none;
+}
+
+.title {
+    font-size: 4.5rem;
+    margin: 15px 0;
+    padding: 0 10px;
+    font-family: 'Black Ops One', cursive;
+    text-transform: uppercase;
+    animation: titlePunch 2s infinite;
+    letter-spacing: 2px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Единые стили для слогана */
+
+.slogan {
+    font-size: 40px;
+    gap: 8px;
+    padding: 0 10px;
+    max-width: 95%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Allow wrapping for better fit */
+    font-family: 'Black Ops One', cursive;
+    letter-spacing: 1px;
+    /* Reduced letter spacing */
+    margin: 10px auto;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slogan span {
+    display: inline-block;
+    margin: 0 5px;
+    white-space: nowrap;
+    /* Keep each word together */
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        background-position: 100% 50%;
+        text-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+}
+
+
+/* Обновляем задержки для каждого слова */
+
+.slogan span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.slogan span:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.slogan span:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.slogan span:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+
+/* Убираем подчеркивание при наведении */
+
+.slogan span::after {
+    display: none;
+}
+
+.progress-bar {
+    background-color: #444;
+    width: 80%;
+    max-width: 800px;
+    height: 50px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar:hover {
+    background-color: #555;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.progress-bar:hover::before {
+    left: 100%;
+    transition: 0.5s;
+}
+
+.progress-text {
+    color: white;
+    font-size: 32px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.progress-bar:hover .progress-text {
+    letter-spacing: 3px;
+}
+
+
+/* Обновляем стили для иконок */
+
+.icons {
+    display: none;
+    /* Скрываем старый контейнер */
+}
+
+.social-icons-left {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    gap: 15px;
+    z-index: 1;
+}
+
+.social-icons-right {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    gap: 15px;
+    z-index: 1;
+}
+
+.social-icons-left img,
+.social-icons-right img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s;
+}
+
+.social-icons-left img:hover,
+.social-icons-right img:hover {
+    transform: scale(1.2);
+}
+
+
+/* Медиа-запросы для иконок */
+
+@media screen and (max-width: 768px) {
+    .social-icons-left,
+    .social-icons-right {
+        top: 15px;
+    }
+    .social-icons-left {
+        left: 15px;
+    }
+    .social-icons-right {
+        right: 15px;
+    }
+    .social-icons-left img,
+    .social-icons-right img {
+        width: 25px;
+        height: 25px;
+    }
+    body {
+        background-color: #1a1a1a;
+        background-size: auto 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .social-icons-left,
+    .social-icons-right {
+        top: 15px;
+    }
+    .social-icons-left {
+        left: 15px;
+    }
+    .social-icons-right {
+        right: 15px;
+    }
+    .social-icons-left img,
+    .social-icons-right img {
+        width: 25px;
+        height: 25px;
+    }
+    body {
+        background-color: #1a1a1a;
+        background-size: auto 100%;
+    }
+}
+
+@font-face {
+    font-family: 'GoodTimingBD';
+    /* Назва шрифту */
+    src: url('./GoodTimingBD.ttf') format('truetype');
+    /* Шлях до файлу */
+    font-weight: normal;
+    /* За потреби можна додати інші варіанти */
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'GoodTimingBD', sans-serif;
+}
+
+
+/* Добавляем медиа-запросы для мобильных устройств */
+
+@media screen and (max-width: 768px) {
+    .main-logo {
+        width: 150px;
+    }
+    .title {
+        font-size: 3.5rem;
+    }
+    .slogan {
+        font-size: 30px;
+        gap: 6px;
+    }
+    .progress-bar {
+        width: 90%;
+        height: 40px;
+    }
+    .progress-text {
+        font-size: 20px;
+    }
+    .icons {
+        gap: 10px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+        /* позволяет иконкам переноситься на новую строку */
+    }
+    .icons img {
+        width: 39px;
+        height: 39px;
+    }
+    .icons a:nth-child(3) img {
+        width: 52px;
+        height: auto;
+    }
+    body {
+        background-size: auto 100%;
+        background-position: top center;
+        background-color: #1a1a1a;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+    .main-logo {
+        width: 120px;
+    }
+    .title {
+        font-size: 2.5rem;
+        margin: 10px 0;
+    }
+    .slogan {
+        font-size: 24px;
+        gap: 4px;
+        padding: 0 5px;
+    }
+    .progress-bar {
+        height: 35px;
+    }
+    .progress-text {
+        font-size: 16px;
+    }
+    .icons {
+        gap: 10px;
+    }
+    .icons img {
+        width: 33px;
+        height: 33px;
+    }
+    .icons a:nth-child(3) img {
+        width: 44px;
+        height: auto;
+    }
+    body {
+        background-size: auto 100%;
+        background-position: top center;
+        background-color: #1a1a1a;
+    }
+}
+
+
+/* Добавляем контейнер для частиц */
+
+.particles {
+    display: none;
+}
+
+
+/* Создаем частицы */
+
+.particle {
+    display: none;
+}
+
+
+/* Генерируем 20 частиц с разными анимациями */
+
+@for $i from 1 through 20 {
+    .particle:nth-child(#{$i}) {
+        left: random(100) * 1%;
+        animation: particleFloat#{$i} #{random(15) + 10}s linear infinite;
+    }
+    @keyframes particleFloat#{$i} {
+        0% {
+            transform: translateY(-100%) rotate(0deg);
+            opacity: 0;
+        }
+        20% {
+            opacity: 0.5;
+        }
+        80% {
+            opacity: 0.5;
+        }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+}
+
+
+/* Удаляем старые анимации линий */
+
+.container::before,
+.container::after {
+    display: none;
+    /* или можно полностью удалить этот блок кода */
+}
+
+
+/* Удаляем анимацию сканирующей линии */
+
+.scan-line {
+    display: none;
+    /* или можно полностью удалить этот блок кода */
+}
+
+
+/* Удаляем связанные keyframes */
+
+@keyframes linePulse {
+    /* можно удалить полностью */
+}
+
+@keyframes scan {
+    /* можно удалить полностью */
+}
+
+
+/* Эффект боевого духа */
+
+.impact-wave {
+    display: none;
+}
+
+
+/* Эффект ударных следов */
+
+.strike-trails {
+    display: none;
+}
+
+
+/* Эффект энергетического поля */
+
+.energy-field {
+    display: none;
+}
+
+
+/* Эффект энергетических вспышек */
+
+.energy-flash {
+    display: none;
+}
+
+
+/* Эффект боевой ауры */
+
+.combat-aura {
+    display: none;
+}
+
+
+/* Медиа-запросы для анимаций */
+
+@media screen and (max-width: 768px) {
+    .wave {
+        display: none;
+        /* Отключаем тяжелые анимации на мобильных */
+    }
+    .combat-aura {
+        opacity: 0.1;
+    }
+}
+
+
+/* Обновленные стили для статистики */
+
+.stats-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    gap: 5px;
+    z-index: 1;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 5px 15px;
+    background: transparent;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-family: 'Black Ops One', cursive;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    line-height: 1;
+}
+
+.stat-label {
+    font-family: 'Black Ops One', cursive;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Убираем старые эффекты */
+
+.stat-item::before,
+.stat-label::after {
+    display: none;
+}
+
+
+/* Медиа-запросы для адаптивности */
+
+@media screen and (max-width: 768px) {
+    .stats-container {
+        bottom: 10px;
+        right: 10px;
+        gap: 5px;
+    }
+    .stat-number {
+        font-size: 3rem;
+    }
+    .stat-label {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stats-container {
+        bottom: 15px;
+        right: 15px;
+    }
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    .stat-label {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* Новая анимация для заголовка */
+
+@keyframes titlePunch {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+
+/* Обновляем стили для боевой стойки */
+
+.fighting-stance {
+    display: none;
+}
+
+
+/* Медиа-запросы для первого силуэта */
+
+@media screen and (max-width: 768px) {
+    .fighting-stance {
+        width: 400px;
+        height: 600px;
+        right: -100px;
+        bottom: 15%;
+        opacity: 0.1;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .fighting-stance {
+        width: 300px;
+        height: 450px;
+        right: -80px;
+        bottom: 10%;
+    }
+}
+
+
+/* Удаляем старые стили линий и добавляем новые эффекты */
+
+
+/* Эффект ударных следов */
+
+.strike-trails {
+    display: none;
+}
+
+
+/* Эффект энергетических вспышек */
+
+.energy-flash {
+    display: none;
+}
+
+
+/* Эффект энергетического поля */
+
+.energy-field {
+    display: none;
+}
+
+
+/* Эффект вспышек */
+
+.power-sparks {
+    display: none;
+}
+
+.spark {
+    display: none;
+}
+
+
+/* Медиа-запросы для оптимизации на мобильных устройствах */
+
+@media screen and (max-width: 768px) {
+    .strike {
+        width: 50px;
+    }
+    .energy-field {
+        opacity: 0.2;
+    }
+    .spark {
+        width: 2px;
+        height: 2px;
+    }
+}
+
+
+/* Добавляем стили для дополнительных силуэтов */
+
+.fighting-stance-2 {
+    display: none;
+}
+
+.fighting-stance-3 {
+    display: none;
+}
+
+
+/* Медиа-запросы для дополнительных силуэтов */
+
+@media screen and (max-width: 768px) {
+    .fighting-stance-2 {
+        width: 300px;
+        height: 450px;
+        left: -50px;
+        top: -100px;
+        opacity: 0.08;
+    }
+    .fighting-stance-3 {
+        width: 250px;
+        height: 375px;
+        left: 50%;
+        top: 35%;
+        opacity: 0.08;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .fighting-stance-2 {
+        width: 200px;
+        height: 300px;
+        left: -30px;
+        top: -80px;
+    }
+    .fighting-stance-3 {
+        width: 180px;
+        height: 270px;
+        left: 40%;
+        top: 40%;
+    }
+}
+
+
+/* Добавляем четвертый силуэт */
+
+.fighting-stance-4 {
+    display: none;
+}
+
+
+/* Обновляем анимацию для четвертого силуэта */
+
+@keyframes stanceFloat4 {
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0) rotate(3deg);
+        filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.3));
+    }
+    50% {
+        transform: translateX(-50%) translateY(-12px) rotate(-2deg);
+        filter: drop-shadow(0 0 30px rgba(255, 69, 0, 0.4));
+    }
+}
+
+
+/* Обновляем медиа-запросы */
+
+@media screen and (max-width: 768px) {
+    .fighting-stance-4 {
+        width: 280px;
+        height: 420px;
+        left: 50%;
+        opacity: 0.08;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .fighting-stance-4 {
+        width: 200px;
+        height: 300px;
+        left: 50%;
+    }
+}
+
+
+/* Добавляем пятый силуэт */
+
+.fighting-stance-5 {
+    display: none;
+}
+
+
+/* Добавляем анимацию для пятого силуэта */
+
+@keyframes stanceFloat5 {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+        filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.3));
+    }
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+        filter: drop-shadow(0 0 30px rgba(255, 69, 0, 0.4));
+    }
+}
+
+
+/* Обновляем медиа-запросы для пятого силуэта */
+
+@media screen and (max-width: 768px) {
+    .fighting-stance-5 {
+        width: 280px;
+        height: 420px;
+        left: -10px;
+        bottom: -8%;
+        opacity: 0.08;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .fighting-stance-5 {
+        width: 200px;
+        height: 300px;
+        left: -5px;
+        bottom: -5%;
+    }
+}
+
+
+/* Обновляем стили для основного изображения */
+
+.main-image {
+    display: none;
+}
+
+
+/* Обновляем анимацию для мобильных устройств */
+
+@media screen and (max-width: 768px) {
+    @keyframes imageFloat {
+        0%,
+        100% {
+            transform: scale(1);
+            filter: grayscale(100%) contrast(130%) brightness(1.1);
+        }
+        50% {
+            transform: scale(1.02);
+            filter: grayscale(100%) contrast(140%) brightness(1.2);
+        }
+    }
+}
+
+
+/* Обновляем стили для боксерских эффектов */
+
+.boxing-effects {
+    display: none;
+}
+
+.glove-effect {
+    display: none;
+}
+
+
+/* Добавляем стили для адреса контракта */
+
+.contract-address {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1;
+}
+
+.contract-address .label {
+    font-family: 'Black Ops One', cursive;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.contract-address .address {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contract-address .address:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Медиа-запросы для адаптивности */
+
+@media screen and (max-width: 768px) {
+    .contract-address {
+        bottom: 10px;
+        left: 10px;
+    }
+    .contract-address .label {
+        font-size: 1rem;
+    }
+    .contract-address .address {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contract-address {
+        bottom: 15px;
+        left: 15px;
+    }
+    .contract-address .label {
+        font-size: 0.8rem;
+    }
+    .contract-address .address {
+        font-size: 0.7rem;
+        padding: 6px 8px;
+    }
+}
+
+
+/* Media queries for very small devices */
+
+@media screen and (max-width: 320px) {
+    .title {
+        font-size: 2rem;
+    }
+    .slogan {
+        font-size: 20px;
+    }
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    .contract-address .address {
+        font-size: 0.6rem;
+        padding: 4px 6px;
+    }
+}
+
+
+/* Add orientation specific styles */
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .title {
+        font-size: 2.5rem;
+        margin: 5px 0;
+    }
+    .slogan {
+        font-size: 20px;
+        margin: 5px auto;
+    }
+    .stats-container {
+        bottom: 10px;
+    }
+    .contract-address {
+        bottom: 10px;
+    }
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 15px 40px;
+    font-family: 'Black Ops One', cursive;
+    font-size: 24px;
+    color: #ffffff;
+    background: linear-gradient(45deg, #000000, #333333);
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    margin-top: 140px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.buy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #333333, #000000);
+}
+
+.buy-button:active {
+    transform: translateY(1px);
+}
+
+
+/* Add shine effect */
+
+.buy-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient( to bottom right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.buy-button:hover::after {
+    animation: shine 1.5s ease-out infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+
+/* Media queries for responsiveness */
+
+@media screen and (max-width: 768px) {
+    .buy-button {
+        padding: 12px 30px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .buy-button {
+        padding: 10px 25px;
+        font-size: 18px;
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .buy-button {
+        padding: 8px 20px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+}
