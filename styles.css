@@ -42,16 +42,15 @@ body::before {
     width: 100%;
     max-width: 1200px;
     text-align: center;
-    padding: 10px;
-    position: relative;
-    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 90vh;
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    margin-top: 0px
 }
 
 .main-logo {
@@ -60,14 +59,15 @@ body::before {
 
 .title {
     font-size: 4.5rem;
-    margin: 15px 0;
+    margin-bottom: 20px;
     padding: 0 10px;
     font-family: 'Black Ops One', cursive;
     text-transform: uppercase;
-    animation: titlePunch 2s infinite;
     letter-spacing: 2px;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-in forwards;
+    opacity: 0;
 }
 
 
@@ -88,6 +88,7 @@ body::before {
     margin: 10px auto;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
 }
 
 .slogan span {
@@ -95,6 +96,8 @@ body::before {
     margin: 0 5px;
     white-space: nowrap;
     /* Keep each word together */
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
 }
 
 @keyframes gradientFlow {
@@ -116,19 +119,31 @@ body::before {
 /* Обновляем задержки для каждого слова */
 
 .slogan span:nth-child(1) {
-    animation-delay: 0s;
+    animation-delay: 1s;
 }
 
 .slogan span:nth-child(2) {
-    animation-delay: 0.4s;
+    animation-delay: 1.3s;
 }
 
 .slogan span:nth-child(3) {
-    animation-delay: 0.8s;
+    animation-delay: 1.6s;
 }
 
 .slogan span:nth-child(4) {
-    animation-delay: 1.2s;
+    animation-delay: 1.9s;
+}
+
+.slogan span:nth-child(5) {
+    animation-delay: 2.2s;
+}
+
+.slogan span:nth-child(6) {
+    animation-delay: 2.5s;
+}
+
+.slogan span:nth-child(7) {
+    animation-delay: 2.8s;
 }
 
 
@@ -201,6 +216,9 @@ body::before {
     display: flex;
     gap: 15px;
     z-index: 1;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 4.6s;
 }
 
 .social-icons-right {
@@ -210,6 +228,9 @@ body::before {
     display: flex;
     gap: 15px;
     z-index: 1;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 4.6s;
 }
 
 .social-icons-left img,
@@ -488,22 +509,35 @@ h1 {
 
 .stats-container {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    gap: 5px;
-    z-index: 1;
+    bottom: 100px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .stat-item {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     padding: 5px 15px;
     background: transparent;
     border: none;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
+    text-align: left;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 3.1s;
+}
+
+.stat-item:nth-child(1) {
+    animation-delay: 3.4s;
+}
+
+.stat-item:nth-child(2) {
+    animation-delay: 3.7s;
 }
 
 .stat-number {
@@ -539,9 +573,9 @@ h1 {
 
 @media screen and (max-width: 768px) {
     .stats-container {
-        bottom: 10px;
-        right: 10px;
-        gap: 5px;
+        bottom: 80px;
+        left: 20px;
+        gap: 10px;
     }
     .stat-number {
         font-size: 3rem;
@@ -553,8 +587,9 @@ h1 {
 
 @media screen and (max-width: 480px) {
     .stats-container {
-        bottom: 15px;
-        right: 15px;
+        bottom: 70px;
+        left: 15px;
+        gap: 8px;
     }
     .stat-number {
         font-size: 2.2rem;
@@ -567,13 +602,14 @@ h1 {
 
 /* Новая анимация для заголовка */
 
-@keyframes titlePunch {
-    0%,
-    100% {
-        transform: scale(1);
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
     }
-    50% {
-        transform: scale(1.05);
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -829,12 +865,13 @@ h1 {
 
 .contract-address {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    z-index: 1;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 4s;
 }
 
 .contract-address .label {
@@ -867,8 +904,7 @@ h1 {
 
 @media screen and (max-width: 768px) {
     .contract-address {
-        bottom: 10px;
-        left: 10px;
+        bottom: 20px;
     }
     .contract-address .label {
         font-size: 1rem;
@@ -881,7 +917,6 @@ h1 {
 @media screen and (max-width: 480px) {
     .contract-address {
         bottom: 15px;
-        left: 15px;
     }
     .contract-address .label {
         font-size: 0.8rem;
@@ -944,10 +979,13 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: all 0.3s ease;
-    margin-top: 140px;
+    margin-top: 40px;
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 4.3s;
 }
 
 .buy-button:hover {
@@ -1002,7 +1040,7 @@ h1 {
     .buy-button {
         padding: 10px 25px;
         font-size: 18px;
-        margin-top: 15px;
+        margin-top: 30px;
     }
 }
 
